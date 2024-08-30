@@ -1,0 +1,91 @@
+.chat{
+    height: 10vh;
+    border: 1px solid #efefef;
+    border-radius: 7px;
+    width: 70%;
+    height: 90vh;
+    position: relative;
+    margin-left: 15%;
+    margin-top: 2%;
+
+    .messages{
+        padding: 1vw 2vw;
+        width: 100%;
+        height: 93%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width:none;
+
+        .message-outer{
+            // background-color: yellow;
+            margin: 1vw;
+            width: 100%;
+            position: relative;
+            display: flex;
+
+            .message-content{
+            text-align: left;
+            color: #212121;
+            padding: 0.7vw;
+            border-radius: 7px;
+            width: 50%;
+            background-color: #e8eaf6;
+
+            .name{
+                font-size: 0.9vw;
+                font-weight: bold;
+                color: #673ab7;
+            }
+
+            .name1{
+                font-size: 0.9vw;
+                font-weight: bold;
+                color: #4caf50;
+            }
+            
+            .msg{
+                color: rgb(70,70,70);
+                font-size: 1vw;
+            }
+
+            }
+        }
+
+        .message-left{
+            justify-content: start;
+        }
+
+        .message-right{
+            justify-content: end;
+        }
+    }
+
+    form{
+        position: absolute;
+        display: flex;
+        gap: 0.3vw;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+
+        input{
+            width: 90%;
+            padding: 0.7vw;
+            border: none;
+            outline: none;
+            border-radius: 7px;
+            font-size: 1vw;
+        }
+
+        button{
+            width: 10%;
+            padding: 0.7vw;
+            border: none;
+            outline: none;
+            border-radius: 7px;
+            font-size: 1vw;
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+    }
+}
