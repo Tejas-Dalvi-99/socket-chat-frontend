@@ -44,3 +44,27 @@
         }
     }
 }
+
+@media (max-width:576px) {
+    .home{
+        form{
+            width: 90%;
+            padding: 5vw;
+            gap: 5vw;
+
+            h1{
+                font-size: 7vw;
+            }
+
+            input{
+                padding: 4vw;
+                font-size: 5vw;
+            }
+
+            button{
+                padding: 4vw;
+                font-size: 5vw;
+            }
+        }
+    }
+}
