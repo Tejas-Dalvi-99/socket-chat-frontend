@@ -3,6 +3,8 @@ import io from 'socket.io-client';
 import "./Chat.scss";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { FaUserAlt } from "react-icons/fa";
+
 
 const socket = io.connect(import.meta.env.VITE_PUBLIC_URL);
 
@@ -10,6 +12,7 @@ function Chat() {
   
   const [allMessages, setAllMessages] = useState([]);
   const [message, setMessage] = useState("");
+  const [onlineUsers, setOnlineUsers] = useState(0);
 
   const handleSendMessage = (e) => {
   e.preventDefault();
@@ -53,15 +56,23 @@ function Chat() {
       // setAllMessages((prevMessages) => [...prevMessages, `${username} left the chat`]);
     });
 
+    socket.on('update-user-count', (count)=>{
+      setOnlineUsers(count);
+    })
+
     return () => {
       socket.off('user-connected');
       socket.off('send-message');
       socket.off('user-disconnected');
+      socket.off('update-user-count');
     };
   }, []);
 
   return (
     <>
+    <div className="online-count">
+    <FaUserAlt/> &nbsp;Online : {onlineUsers}
+    </div>
     <div className="chat">
       <div className="messages" ref={messageRef}>
         {allMessages.map((msg, index) => (
@@ -84,7 +95,7 @@ function Chat() {
       </form>
     </div>
     {
-      <ToastContainer position="top-right" theme="dark" autoClose="1000"/>
+      <ToastContainer position="top-right" theme="dark" autoClose="1500"/>
     }
 </>
   );
